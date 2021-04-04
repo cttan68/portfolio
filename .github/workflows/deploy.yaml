@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Tex to PDF
-        uses: ../actions/xelatex
+        uses: ./.github/actions/xelatex
         env:
           OUT_DIR: public
       - name: Upload artifacts
