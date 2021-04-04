@@ -7,6 +7,9 @@ LABEL "com.github.actions.name"="Convert to PDF"
 LABEL "com.github.actions.description"="Convert documents to PDF using xelatex."
 LABEL "com.github.actions.icon"="code"
 LABEL "com.github.actions.color"="blue"
+ENV TZ=Asia/Singapore
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # Install all xelatex and LaTeX dependencies
 RUN apt-get update && \
     apt-get install --yes --no-install-recommends \
