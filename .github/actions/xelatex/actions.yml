@@ -1,0 +1,6 @@
+# action.yml
+name: 'Xelatex'
+description: 'Xelatex action'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
