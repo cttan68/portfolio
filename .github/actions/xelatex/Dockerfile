@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM ubuntu:latest
 
 LABEL "maintainer"="Chin Thong <chinthongtan68@gmail.com>"
 LABEL "repository"="https://github.com/cttan68/portfolio"
