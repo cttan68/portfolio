@@ -11,6 +11,6 @@ done
 for fileName in *.tex; do
     [ -f "$fileName" ] || break
     echo "Converting file $fileName to pdf..."
-    xelatex $fileName
+    pdflatex $fileName
 done
 cp *.pdf $OUT_DIR 2>/dev/null || :
