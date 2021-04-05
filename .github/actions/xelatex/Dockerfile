@@ -3,12 +3,8 @@ FROM texlive/texlive:latest
 
 MAINTAINER Chin Thong <chinthongtan68@gmail.com>
 # LABEL "maintainer"="Chin Thong <chinthongtan68@gmail.com>"
-LABEL   "repository"="https://github.com/cttan68/portfolio"
-        "homepage"="https://github.com/cttan68/portfolio"
-        "com.github.actions.name"="Convert to PDF"
-        "com.github.actions.description"="Convert documents to PDF using pdflatex."
-        "com.github.actions.icon"="code"
-        "com.github.actions.color"="blue"
+LABEL   "repository"="https://github.com/cttan68/portfolio" "homepage"="https://github.com/cttan68/portfolio"
+LABEL   "com.github.actions.name"="Convert to PDF" "com.github.actions.description"="Convert documents to PDF using pdflatex." "com.github.actions.icon"="code" "com.github.actions.color"="blue"
 #ENV TZ=Asia/Singapore
 #RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
