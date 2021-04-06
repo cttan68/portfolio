@@ -51,3 +51,7 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      - name: Print all variables
+        run: 
+          echo $CI, $HOME, $GITHUB_WORKFLOW, $GITHUB_RUN_ID, $GITHUB_RUN_NUMBER
+          echo $GITHUB_ACTION, $GITHUB_ACTIONS, $GITHUB_ACTOR, $GITHUB_REPOSITORY
