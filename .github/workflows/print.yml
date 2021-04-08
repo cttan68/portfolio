@@ -59,6 +59,8 @@ jobs:
         run: |
           echo ${{ secrets.PORTFOLIO_ENV_SECRET1 }}
           echo ${{ secrets.PORTFOLIO_SECRET1 }}
+      - name: Step is going to fail
+        run: exit 1
       - name: Step To run on failure
         if: ${{ failure() }}
         run: |
@@ -70,6 +72,5 @@ jobs:
               "title": "Issue created due to workflow fialure: ${{ github.run_id }}",
               "body": "--${{ secrets.PORTFOLIO_ENV_SECRET1 }}-- This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n due to failure in run: _${{ github.run_id }}_."
               }'
-      - name: Step is going to fail
-        run: exit 1
+      
       
