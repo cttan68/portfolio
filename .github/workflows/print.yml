@@ -82,8 +82,8 @@ jobs:
       job_var1: "job variable value"
     steps:
       - name: Using Workflow Variables
-      - shell: pwsh
+        shell: pwsh
         env:
           SUPER_SECRET: ${{ secrets.PORTFOLIO_SECRET1 }}
         run: |
-          echo $SUPER_SECRET
+          write-host $SUPER_SECRET
