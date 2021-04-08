@@ -60,6 +60,7 @@ jobs:
         run: |
           echo ${{ secrets.PORTFOLIO_ENV_SECRET1 }}
           echo ${{ secrets.PORTFOLIO_SECRET1 }}
+          echo $ENV_SECRET1
       - name: Step is going to fail
         run: exit 1
       - name: Step To run on failure
