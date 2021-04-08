@@ -76,7 +76,9 @@ jobs:
               }'
 
   
-  job1:
+  test:
+    name: Test the github action environment
+    needs: [job1, job2]
     runs-on: ubuntu-latest
     env:
       job_var1: "job variable value"
@@ -87,3 +89,10 @@ jobs:
           SUPER_SECRET: ${{ secrets.PORTFOLIO_SECRET1 }}
         run: |
           write-host $SUPER_SECRET
+          
+  job1:
+    name: sample job one
+    runs-on: ubuntu-latest
+  job2:
+    name: sample job two
+    runs-on: ubuntu-latest
