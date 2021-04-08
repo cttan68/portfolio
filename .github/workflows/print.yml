@@ -93,6 +93,12 @@ jobs:
   job1:
     name: sample job one
     runs-on: ubuntu-latest
+    steps:
+      - name: s1
+        run: echo job1
   job2:
     name: sample job two
     runs-on: ubuntu-latest
+    steps:
+      - name: s1
+        run: echo job2
