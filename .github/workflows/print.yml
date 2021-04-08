@@ -56,6 +56,6 @@ jobs:
           echo $CI, $HOME, $GITHUB_WORKFLOW, $GITHUB_RUN_ID, $GITHUB_RUN_NUMBER
           echo $GITHUB_ACTION, $GITHUB_ACTIONS, $GITHUB_ACTOR, $GITHUB_REPOSITORY
       - name: repo and env secrets
-        run:
+        run: |
           echo ${{ secrets.portfolio_secret1 }}
           echo ${{ secrets.portfolio_env_secret1 }}
