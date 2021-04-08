@@ -16,6 +16,7 @@ env:
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
   user_name: "Chaminda"
   demo_name: "Variable Demo"
+  ENV_SECRET1: ${{ secrets.PORTFOLIO_SECRET1 }}
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -70,7 +71,20 @@ jobs:
             --header 'content-type: application/json' \
             --data '{
               "title": "Issue created due to workflow fialure: ${{ github.run_id }}",
-              "body": "--${{ secrets.PORTFOLIO_ENV_SECRET1 }}-- This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n due to failure in run: _${{ github.run_id }}_."
+              "body": "--$ENV_SECRET1-- This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n due to failure in run: _${{ github.run_id }}_."
               }'
+  job1:
+    runs-on: ubuntu-latest
+    env:
+      job_var1: "job variable value"
+    steps:
+      - name: Using Workflow Variables
+      - shell: pwsh
+        env:
+          SUPER_SECRET: ${{ secrets.PORTFOLIO_SECRET1 }}
+        run: |
+          echo $SUPER_SECRET
+  
+      
       
       
