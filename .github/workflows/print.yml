@@ -72,7 +72,7 @@ jobs:
             --header 'content-type: application/json' \
             --data '{
               "title": "Issue created due to workflow fialure: ${{ github.run_id }}",
-              "body": "--$ENV_SECRET1-- This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n due to failure in run: _${{ github.run_id }}_."
+              "body": "--${{ ENV_SECRET1 }}-- This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n due to failure in run: _${{ github.run_id }}_."
               }'
 
   
