@@ -89,6 +89,12 @@ jobs:
           SUPER_SECRET: ${{ secrets.PORTFOLIO_SECRET1 }}
         run: |
           write-host $SUPER_SECRET
+          echo ${env:PATH}
+      - name: Display the path
+        run: |
+          import os
+          print(os.environ['PATH'])
+        shell: python
           
   job1:
     name: sample job one
@@ -104,4 +110,7 @@ jobs:
         run: |
           echo this is job2
       - name: s2
-        uses: docker://alpine:3.8          
+        uses: docker://alpine:3.8
+        with:
+          entrypoint: /bin/echo
+          args: The ${{ github.event_name }} event triggered this step.
