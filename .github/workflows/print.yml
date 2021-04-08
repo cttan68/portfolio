@@ -76,6 +76,14 @@ jobs:
               }'
 
   
-      
-      
-      
+  job1:
+    runs-on: ubuntu-latest
+    env:
+      job_var1: "job variable value"
+    steps:
+      - name: Using Workflow Variables
+      - shell: pwsh
+        env:
+          SUPER_SECRET: ${{ secrets.PORTFOLIO_SECRET1 }}
+        run: |
+          echo $SUPER_SECRET
