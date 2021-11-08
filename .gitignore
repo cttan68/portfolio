@@ -1,5 +1,9 @@
-main.aux
-main.out
-main.pdf
-main.log
+*.aux
+*.out
+*.pdf
+*.log
 test/*
+tmp/*
+*.synctex.gz
+*.fls
+*.fdb_latexmk
