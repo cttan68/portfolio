@@ -256,6 +256,12 @@
 		#2
 	}
 	
+	\makeatletter
+	\newcommand{\shoppinglist}[1]{%
+		Shopping list: #1\checknextarg}
+	\newcommand{\checknextarg}{\@ifnextchar\bgroup{\gobblenextarg}{ and that's all!}}
+	\newcommand{\gobblenextarg}[1]{ and also #1\@ifnextchar\bgroup{\gobblenextarg}{ and that's all!}}
+	
 	%----------------------------------------------------------------------------------------
 	% CUSTOM STRUT FOR EMPTY BOXES
 	%----------------------------------------- -----------------------------------------------
@@ -310,6 +316,12 @@
 	%
 	%============================================================================%
 	\begin{document}
+	
+%	\shoppinglist{eggs}\par
+%	\shoppinglist{eggs}{bread}{milk}\par
+%	\shoppinglist{milk}{bread}\par
+%	\shoppinglist{milk}{bread}{cheese}{the Sacred Tome of all Knowledge}\par
+	
 	\fcolorbox{white}{white}{\begin{minipage}[c][0.95\textheight][t]{0.69\linewidth}
 	
 	
@@ -376,6 +388,9 @@
 	
 	%
 	\cvevent{2011/06 - 2019/05}{Senior IT Manager}{Singapore Institute of Management}{IT infrastructure management, IT security, desktop and application support. IT budgeting, procurement, assets management and data analysis}{Process improvement and automation. Business continuity management and enterprise risk management}
+	\begin{tabular*}{1\mpwidth}{p{0.01\mpwidth} p{0.75\mpwidth}}
+		\larrow{softcol}  & Implemented a billing system for enterprise printing. It has report generation and data trending capabilities\\[3pt]
+	\end{tabular*}
 	
 	%\textcolor{softcol}{\hrule}
 	
