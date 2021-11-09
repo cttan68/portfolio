@@ -58,9 +58,9 @@ jobs:
           echo $GITHUB_ACTION, $GITHUB_ACTIONS, $GITHUB_ACTOR, $GITHUB_REPOSITORY
       - name: repo and env secrets
         run: |
-          echo ${{ secrets.PORTFOLIO_ENV_SECRET1 }}
-          echo ${{ secrets.PORTFOLIO_SECRET1 }}
-          echo $ENV_SECRET1
+          echo This is env secret ${{ secrets.PORTFOLIO_ENV_SECRET1 }}
+          echo This is repo secret ${{ secrets.PORTFOLIO_SECRET1 }}
+          echo Trying ‘$ENV_SECRET1’ = $ENV_SECRET1
       - name: Step is going to fail
         run: exit 1
       - name: Step To run on failure
@@ -76,7 +76,9 @@ jobs:
               }'
 
   
-  job1:
+  test:
+    name: Test the github action environment
+    needs: [job1, job2]
     runs-on: ubuntu-latest
     env:
       job_var1: "job variable value"
@@ -87,3 +89,28 @@ jobs:
           SUPER_SECRET: ${{ secrets.PORTFOLIO_SECRET1 }}
         run: |
           write-host $SUPER_SECRET
+          echo ${env:PATH}
+      - name: Display the path
+        run: |
+          import os
+          print(os.environ['PATH'])
+        shell: python
+          
+  job1:
+    name: sample job one
+    runs-on: ubuntu-latest
+    steps:
+      - name: s1
+        run: echo This is job1
+  job2:
+    name: sample job two
+    runs-on: ubuntu-latest
+    steps:
+      - name: s1
+        run: |
+          echo this is job2
+      - name: s2
+        uses: docker://alpine:3.8
+        with:
+          entrypoint: /bin/echo
+          args: The ${{ github.event_name }} event triggered this step.
